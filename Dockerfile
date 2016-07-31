@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM java:8
 VOLUME /tmp
 ADD https://github.com/alberto-grande/docker-ex/raw/master/gs-spring-boot-0.1.0.jar /app.jar
 RUN sh -c 'touch /app.jar'
