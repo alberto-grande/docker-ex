@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-ex
+  namespace: docker-test
+  selfLink: /api/v1/namespaces/docker-test/services/docker-ex
+  resourceVersion: '4315'
+  labels:
+    app: docker-ex
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+spec:
+  ports:
+    -
+      name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    deploymentconfig: docker-ex
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {  }
+
