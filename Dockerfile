@@ -10,6 +10,7 @@ RUN apt-get update && \
     apt-get clean
 EXPOSE 8080
 VOLUME /tmp
-ADD https://github.com/alberto-grande/docker-ex/raw/master/gs-spring-boot-0.1.0.jar /home/app.jar
-RUN sh -c 'touch /home/app.jar'
+RUN wget -q --no-check-certificate --connect-timeout=5 --read-timeout=10 --tries=2 -O "/home/app.jar" "https://github.com/alberto-grande/docker-ex/raw/master/gs-spring-boot-0.1.0.jar"
+
+
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/home/app.jar"]
